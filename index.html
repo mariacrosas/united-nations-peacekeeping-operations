@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UN PKOs</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="http://www.d3plus.org/js/d3.js"></script>
+  <script src="http://www.d3plus.org/js/d3plus.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <style>
+  body {
+      position: relative;
+  }
+  #section1 {padding-top:50px;height:550px}
+  #section2 {padding-top:50px;height:400px;color: #1e90ff;}
+  #section3 {padding-top:50px;height:900px;color: #1e90ff;}
+  #section41 {padding-top:50px;height:450px;color: #1e90ff;}
+  #section42 {padding-top:50px;height:550px;color: #1e90ff;}
+  #section51 {padding-top:50px;height:550px;color: #1e90ff;}
+  #section52 {padding-top:50px;height:550px;color: #1e90ff;}
+  #section6 {padding-top:50px;height:300px;color: #1e90ff;}
+
+  p{
+    text-align:center;
+    font-family: sans-serif;
+    color: black;
+    font-size: 14px;
+    margin:auto;
+    position: relative;
+    width:800px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #headline{
+    font-family: serif;
+    font-size: 60px;
+    font-weight: bolder;
+    color:black;
+    width:500px,
+  }
+
+  #cover{
+    width:500px;
+    text-align:center;
+    font-family: sans-serif;
+    color: black;
+    font-size: 14px;
+    margin:auto;
+    position: relative;
+  }
+
+  h2{
+    color:grey;
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  h3{
+    color:black;
+    font-weight: lighter;
+    font-size: 20px;
+    text-align: center;
+
+  }
+
+  #viz{
+    width:800px;
+    height:430px;
+    position: relative;
+    margin:auto;
+  }
+
+  #figcaption{
+    color:black;
+    font-size: 9px;
+  }
+
+  #figure{
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  #missions{
+    font-size: 12px;
+    color:grey;
+    text-align: center;
+    width:800px;
+    position: relative;
+    margin:auto;
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">UN PKOs</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#section1">United Nations</a></li>
+          <li><a href="#section2">Deploying a PKO</a></li>
+          <li><a href="#section3">Missions</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Peacekeeping operations<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">Traditional PKO</a></li>
+              <li><a href="#section42">Multidimensional PKO</a></li>
+            </ul>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Budget<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#section51">Mandatory</a></li>
+            <li><a href="#section52">Voluntary</a></li>
+          </ul>
+            <li><a href="#section6">Sources and legends</a></li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="section1" class="container-fluid">
+  <h1 id="headline">The cost of international peace</h1>
+  <br><br><br>
+  <p id="cover"> <b>The Security Council</b> can authorise a range of peaceful and coercive measures when a country presents a conflict such as <b>conflict prevention, peacemaking, peacekeeping, peace enforcement and peacebuilding.</b>
+  Usually, a peacekeeping operation (PKO) is designed When the fight has ended to preserve peace and implement agreements between the peacemakers.</p>
+  <br><br><br>
+  <p id="cover"> The United Nations has 8 billion dollars every year for peacekeeping operations. This year, the Security Council has approved <b>15 missions</b> with a budget of <b>$8.27 billion</b>. However, as of 30 June 2015, Member States owed approximately <b>$1.6 billion in current and back peacekeeping dues.</b><p>
+  <br><br><br>
+  <p id="missions">By Maria Crosas. Pictures: United Nations Photos</p>
+</div>
+
+
+<div id="section2" class="container-fluid">
+  <h1>Deploying a Peacekeeping Operation</h1>
+  <br>
+  <h3>Who decides it?</h3>
+  <p><b>The Security Council</b> determines the existence of a threat to the peace and recommends what, when and where an action should be taken. There are 15 members and five of them are <b>veto-wielding Permanent Members</b> (China, France, Russia, the United Kingdom and the United States). In order to pass a resolution, nine votes -and none of the Permanent Members voting against- are required.</p>
+  <br>
+  <h3>How does it work?</h3>
+  <p> When there is a cisis between countries, either a Member of the Security Council or the Secretary-General can ask the Security Council to debate the situation. If it's a <b>risk to international piece</b>, the Security Council will ask the <b>Secretary-General</b> to analyse and assess the overall security, political, humanitarian, and military situation and the future implications of the mission through a report called the <b>Technical Assessment Mission</b> (TAM).
+  These findings are sent to the Security Council, who will <b>authorise</b> the deployment of the PKO as a resolution form and write a mandate with all the tasks and objectives of the mission.</p>
+  <br>
+  <p><i>Below is a scheme of this process:</i></p>
+  <svg width="950" height="300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(40,0)"><path class="link" d="M0,137.5C52.857142857142875,137.5 52.857142857142875,137.5 105.71428571428575,137.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M105.71428571428575,137.5C158.57142857142858,137.5 158.57142857142858,137.5 211.42857142857142,137.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M211.42857142857142,137.5C264.2857142857143,137.5 264.2857142857143,137.5 317.14285714285717,137.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M317.14285714285717,137.5C370,137.5 370,137.5 422.85714285714283,137.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M422.85714285714283,137.5C475.71428571428567,137.5 475.71428571428567,37.5 528.5714285714286,37.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M422.85714285714283,137.5C475.71428571428567,137.5 475.71428571428567,131.25 528.5714285714286,131.25" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M422.85714285714283,137.5C475.71428571428567,137.5 475.71428571428567,243.75 528.5714285714286,243.75" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M528.5714285714286,37.5C581.4285714285714,37.5 581.4285714285714,37.5 634.2857142857143,37.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M634.2857142857143,37.5C687.1428571428571,37.5 687.1428571428571,37.5 740,37.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M528.5714285714286,131.25C581.4285714285714,131.25 581.4285714285714,131.25 634.2857142857143,131.25" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M634.2857142857143,131.25C687.1428571428571,131.25 687.1428571428571,112.5 740,112.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M634.2857142857143,131.25C687.1428571428571,131.25 687.1428571428571,150 740,150" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M528.5714285714286,243.75C581.4285714285714,243.75 581.4285714285714,243.75 634.2857142857143,243.75" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M634.2857142857143,243.75C687.1428571428571,243.75 687.1428571428571,225 740,225" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><path class="link" d="M634.2857142857143,243.75C687.1428571428571,243.75 687.1428571428571,262.5 740,262.5" style="fill: none; stroke: rgb(204, 204, 204); stroke-width: 1px;"></path><g class="node" transform="translate(0,137.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;"></text></g><g class="node" transform="translate(105.71428571428575,137.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">Country</text></g><g class="node" transform="translate(211.42857142857142,137.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">Security Council</text></g><g class="node" transform="translate(317.14285714285717,137.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">General Assembly</text></g><g class="node" transform="translate(422.85714285714283,137.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">Security Council</text></g><g class="node" transform="translate(528.5714285714286,37.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">1</text></g><g class="node" transform="translate(634.2857142857143,37.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">Prevention</text></g><g class="node" transform="translate(740,37.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: start;">Conflict prevention</text></g><g class="node" transform="translate(528.5714285714286,131.25)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">2</text></g><g class="node" transform="translate(634.2857142857143,131.25)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">Conflict</text></g><g class="node" transform="translate(740,112.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: start;">Peacemaking</text></g><g class="node" transform="translate(740,150)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: start;">Peace enforcement</text></g><g class="node" transform="translate(528.5714285714286,243.75)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">3</text></g><g class="node" transform="translate(634.2857142857143,243.75)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="-8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: end;">Ceasefire</text></g><g class="node" transform="translate(740,225)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: start;">Peacekeeping</text></g><g class="node" transform="translate(740,262.5)"><circle r="4.5" style="fill: rgb(238, 238, 238); stroke: rgb(153, 153, 153); stroke-width: 1px;"></circle><text dx="8" dy="3" style="font-size: 11px; font-family: Arial, Helvetica; text-anchor: start;">Post conflict peacebuilding</text></g></g></svg>
+
+<div id="section3" class="container-fluid">
+  <h1>Missions decided by 15 countries</h1>
+  <br>
+  <p><b>João Maurício</b> has been working in peace operations for more than eight years, and now he is the Deputy Operations Officer in the Brazilian Engineering Company in the United Nations Stabilization Mission in Haiti.
+    He explains that decisions of approving -or not- PKOs are totally political. 15 representatives (and 5 veto-members) from the Security Council decide the international presence -or not- in a specific country:
+  <i>"Going through the history, you will see loads of resolutions that didn't pass because one or two Permanent Member didn't want it".</i></p>
+  <br>
+  <p> <b>Eduarda Hamann</b>,coordinator of the Peacebuilding programm at the Instituto Igaratpé in Brasil, says that PKOs are created and work in the middle of a "huge competition of political power".
+  There is a big division between the countries that create the mandates, <a href="#section52">those who pay for the mandates</a> and those who implement them.
+  This represents 20-30 countries out of 193 members, while the Secretary General receives demands and pushes from all the members: "It is not an easy math".
+  </p>
+  <br>
+  <p>João also goes through the lasts budgets to explain how missions such as in Haiti, Liberia, Mali or Africa Central Republic <b>are being downsized</b> because of France or the United States,
+  present in the Security Council and the General Assembly. Use the graphic below to see the number of missions since 2006 and their budget:</p>
+  <br>
+  <div id="viz"></div>
+  <script>
+    var sample_data = [
+      {"year": 2006, "name": "MINUSTAH", "budget": 48920710},
+      {"year": 2007, "name": "MINUSTAH", "budget": 53537280},
+      {"year": 2008, "name": "MINUSTAH", "budget": 57491650},
+      {"year": 2009, "name": "MINUSTAH", "budget": 61175120},
+      {"year": 2010, "name": "MINUSTAH", "budget": 85382740},
+      {"year": 2011, "name": "MINUSTAH", "budget": 79351710},
+      {"year": 2012, "name": "MINUSTAH", "budget": 64839400},
+      {"year": 2013, "name": "MINUSTAH", "budget": 57661900},
+      {"year": 2014, "name": "MINUSTAH", "budget": "NA"},
+      {"year": 2015, "name": "MINUSTAH", "budget": 38035570},
+      {"year": 2006, "name": "MINURSO", "budget": 4593500},
+      {"year": 2007, "name": "MINURSO", "budget": 4763720},
+      {"year": 2008, "name": "MINURSO", "budget": 4837530},
+      {"year": 2009, "name": "MINURSO", "budget": 5657650},
+      {"year": 2010, "name": "MINURSO", "budget": 6003850},
+      {"year": 2011, "name": "MINURSO", "budget": 6321930},
+      {"year": 2012, "name": "MINURSO", "budget": 6129980},
+      {"year": 2013, "name": "MINURSO", "budget": 6047570},
+      {"year": 2014, "name": "MINURSO", "budget": "NA"},
+      {"year": 2015, "name": "MINURSO", "budget": 5319000},
+      {"year": 2007, "name": "MINURCAT", "budget": 182444000},
+      {"year": 2008, "name": "MINURCAT", "budget": 440795500},
+      {"year": 2009, "name": "MINURCAT", "budget": 690753100},
+      {"year": 2010, "name": "MINURCAT", "budget": 239096600},
+      {"year": 2013, "name": "MINUSMA", "budget": 602000000},
+      {"year": 2014, "name": "MINUSMA", "budget": "NA"},
+      {"year": 2015, "name": "MINUSMA", "budget": 923305800},
+      {"year": 2006, "name": "MONUC/MONUSCO", "budget": 1094247900},
+      {"year": 2007, "name": "MONUC/MONUSCO", "budget": 1115654300},
+      {"year": 2008, "name": "MONUC/MONUSCO", "budget": 1191103300},
+      {"year": 2009, "name": "MONUC/MONUSCO", "budget": 1351538500},
+      {"year": 2010, "name": "MONUC/MONUSCO", "budget": 1369000000},
+      {"year": 2011, "name": "MONUC/MONUSCO", "budget": 1489390500},
+      {"year": 2012, "name": "MONUC/MONUSCO", "budget": 1347538800},
+      {"year": 2013, "name": "MONUC/MONUSCO", "budget": 1456378300},
+      {"year": 2014, "name": "MONUC/MONUSCO", "budget": "NA"},
+      {"year": 2015, "name": "MONUC/MONUSCO", "budget": 1332178600},
+      {"year": 2007, "name": "UNAMID", "budget": 1275653700},
+      {"year": 2008, "name": "UNAMID", "budget": 1499710000},
+      {"year": 2009, "name": "UNAMID", "budget": 1598942200},
+      {"year": 2010, "name": "UNAMID", "budget": 1808127500},
+      {"year": 2011, "name": "UNAMID", "budget": 1689305500},
+      {"year": 2012, "name": "UNAMID", "budget": 1448574000},
+      {"year": 2013, "name": "UNAMID", "budget": 1335248000},
+      {"year": 2014, "name": "UNAMID", "budget": "NA"},
+      {"year": 2015, "name": "UNAMID", "budget": 1102164700},
+      {"year": 2006, "name": "UNDOF", "budget": 39865200},
+      {"year": 2007, "name": "UNDOF", "budget": 39662500},
+      {"year": 2008, "name": "UNDOF", "budget": 45726000},
+      {"year": 2009, "name": "UNDOF", "budget": 45029700},
+      {"year": 2010, "name": "UNDOF", "budget": 47806900},
+      {"year": 2011, "name": "UNDOF", "budget": 50526100},
+      {"year": 2012, "name": "UNDOF", "budget": 45992000},
+      {"year": 2013, "name": "UNDOF", "budget": 60654500},
+      {"year": 2014, "name": "UNDOF", "budget": "NA"},
+      {"year": 2015, "name": "UNDOF", "budget": 51706200},
+      {"year": 2006, "name": "UNFICYP", "budget": 46270400},
+      {"year": 2007, "name": "UNFICYP", "budget": 48058400},
+      {"year": 2008, "name": "UNFICYP", "budget": 56396700},
+      {"year": 2009, "name": "UNFICYP", "budget": 55897000},
+      {"year": 2010, "name": "UNFICYP", "budget": 58156300},
+      {"year": 2011, "name": "UNFICYP", "budget": 58204247},
+      {"year": 2012, "name": "UNFICYP", "budget": 56106200},
+      {"year": 2013, "name": "UNFICYP", "budget": 56604300},
+      {"year": 2014, "name": "UNFICYP", "budget": "NA"},
+      {"year": 2015, "name": "UNFICYP", "budget": 52538500},
+      {"year": 2006, "name": "UNIFIL", "budget": 350866600},
+      {"year": 2007, "name": "UNIFIL", "budget": 713586800},
+      {"year": 2008, "name": "UNIFIL", "budget": 650755600},
+      {"year": 2009, "name": "UNIFIL", "budget": 589799200},
+      {"year": 2010, "name": "UNIFIL", "budget": 518710200},
+      {"year": 2011, "name": "UNIFIL", "budget": 545470600},
+      {"year": 2012, "name": "UNIFIL", "budget": 524010000},
+      {"year": 2013, "name": "UNIFIL", "budget": 492622000},
+      {"year": 2014, "name": "UNIFIL", "budget": "NA"},
+      {"year": 2015, "name": "UNIFIL", "budget": 506346400},
+      {"year": 2011, "name": "UNISFA", "budget": 175500000},
+      {"year": 2012, "name": "UNISFA", "budget": 257932000},
+      {"year": 2013, "name": "UNISFA", "budget": 329108600},
+      {"year": 2014, "name": "UNISFA", "budget": "NA"},
+      {"year": 2015, "name": "UNISFA", "budget": 268256700},
+      {"year": 2006, "name": "UNMIK", "budget": 217962000},
+      {"year": 2007, "name": "UNMIK", "budget": 210676800},
+      {"year": 2008, "name": "UNMIK", "budget": 198012000},
+      {"year": 2009, "name": "UNMIK", "budget": 46809000},
+      {"year": 2010, "name": "UNMIK", "budget": 47874400},
+      {"year": 2011, "name": "UNMIK", "budget": 44914800},
+      {"year": 2012, "name": "UNMIK", "budget": 46963000},
+      {"year": 2013, "name": "UNMIK", "budget": 44953000},
+      {"year": 2014, "name": "UNMIK", "budget": "NA"},
+      {"year": 2015, "name": "UNMIK", "budget": 40031000},
+      {"year": 2006, "name": "UNMIL", "budget": 714877300},
+      {"year": 2007, "name": "UNMIL", "budget": 688383400},
+      {"year": 2008, "name": "UNMIL", "budget": 603760800},
+      {"year": 2009, "name": "UNMIL", "budget": 561031500},
+      {"year": 2010, "name": "UNMIL", "budget": 524052800},
+      {"year": 2011, "name": "UNMIL", "budget": 525612730},
+      {"year": 2012, "name": "UNMIL", "budget": 49645780},
+      {"year": 2013, "name": "UNMIL", "budget": 476329800},
+      {"year": 2014, "name": "UNMIL", "budget": "NA"},
+      {"year": 2015, "name": "UNMIL", "budget": 344712200},
+      {"year": 2006, "name": "UNMISS", "budget": 1079534400},
+      {"year": 2007, "name": "UNMISS", "budget": 846277200},
+      {"year": 2008, "name": "UNMISS", "budget": 876893700},
+      {"year": 2009, "name": "UNMISS", "budget": 958350200},
+      {"year": 2010, "name": "UNMISS", "budget": 1008026300},
+      {"year": 2011, "name": "UNMISS", "budget": 137532000},
+      {"year": 2012, "name": "UNMISS", "budget": 839490000},
+      {"year": 2013, "name": "UNMISS", "budget": 924426000},
+      {"year": 2014, "name": "UNMISS", "budget": "NA"},
+      {"year": 2015, "name": "UNMISS", "budget": 1085769200},
+      {"year": 2006, "name": "UNOCI", "budget": 472889300},
+      {"year": 2007, "name": "UNOCI", "budget": 470856100},
+      {"year": 2008, "name": "UNOCI", "budget": 475402600},
+      {"year": 2009, "name": "UNOCI", "budget": 491774100},
+      {"year": 2010, "name": "UNOCI", "budget": 485078200},
+      {"year": 2011, "name": "UNOCI", "budget": 645961400},
+      {"year": 2012, "name": "UNOCI", "budget": 575017000},
+      {"year": 2013, "name": "UNOCI", "budget": 584487000},
+      {"year": 2014, "name": "UNOCI", "budget": "NA"},
+      {"year": 2015, "name": "UNOCI", "budget": 402794300},
+      {"year": 2009, "name": "UNSOA", "budget": 0},
+      {"year": 2010, "name": "UNSOA", "budget": 0},
+      {"year": 2011, "name": "UNSOA", "budget": 291092700},
+      {"year": 2012, "name": "UNSOA", "budget": 436905000},
+      {"year": 2013, "name": "UNSOA", "budget": 435801000},
+      {"year": 2014, "name": "UNSOA", "budget": "NA"},
+      {"year": 2015, "name": "UNSOA", "budget": 513428300},
+      {"year": 2006, "name": "UNMIT", "budget": 170221100},
+      {"year": 2007, "name": "UNMIT", "budget": 153159800},
+      {"year": 2008, "name": "UNMIT", "budget": 172842000},
+      {"year": 2009, "name": "UNMIT", "budget": 205939400},
+      {"year": 2010, "name": "UNMIT", "budget": 206311600},
+      {"year": 2011, "name": "UNMIT", "budget": 196077500},
+      {"year": 2012, "name": "UNMIT", "budget": 155429000},
+      {"year": 2014, "name": "MINUSCA", "budget": "NA"},
+      {"year": 2015, "name": "MINUSCA", "budget": 814066800},
+      {"year": 2006, "name": "UNOMIG", "budget": 137385100},
+      {"year": 2007, "name": "UNOMIG", "budget": 35009800},
+      {"year": 2008, "name": "UNOMIG", "budget": 34484200},
+      {"year": 2009, "name": "UNOMIG", "budget": 10946000},
+      {"year": 2006, "name": "UNMEE", "budget": 137385100},
+      {"year": 2007, "name": "UNMEE", "budget": 113483400},
+      {"year": 2008, "name": "UNMEE", "budget": 37016400},
+      {"year": 2006, "name": "ONUB", "budget": 128536700}
+    ]
+    // instantiate d3plus
+    var visualization = d3plus.viz()
+      .container("#viz")  // container DIV to hold the visualization
+      .data(sample_data)  // data to use with the visualization
+      .type("line")       // visualization type
+      .id("name")         // key for which our data is unique on
+      .text("name")       // key to use for display text
+      .y("budget")         // key to use for y-axis
+      .x("year")          // key to use for x-axis
+      .draw()             // finally, draw the visualization!
+  </script>
+  <br>
+  <p> To look at the missions meaning click <a href="#section6">here </a></p>
+</div>
+
+<div id="section4" class="container-fluid">
+  <h1>Two models of peacekeeping operations</h1>
+  <br>
+  <p>The United Nations needs the consent of the parties to the conflict in order to deploy a PKO. Otherwise, the action is typically categorised as a peace enforcement mission.
+  This agreement between the host country, the actors involved and the United Nations, can either be a <a href="http://www.un.org/ga/search/view_doc.asp?symbol=a/45/594"><b>Status of Forces Agreement</b> (SOFA) [pdf] </a> or a <b>Status of Mission Agreement </b> (SOMA) for missions with unarmed personnel only.</p>
+  <br>
+  <p> When the Security Council approves the resolution, asks which State Members want to assist the mission. This decision is, again, political. Countries will choose to intervene -or not- depending on the relationship with the host country.
+  If a country agrees, personnel, equipment and services are provided voluntary, even though the United Nations will reimburse a fix amount of money to pay the troops.The basis of this agreement is set by the <a href="http://www.un.org/en/peacekeeping/sites/coe/referencedocuments/COE_manual_2011.pdf"><b>Memorandum of Understanding</b> </a>(MOU)
+  Finally, the United Nations prepares the <b>Rules of Engagement</b> (ROE) between the UN, the host country and the government that assists. This non-public document defines the use of force of a specific mandate of the misison and situation on the ground.
+  </p>
+  <br>
+  <p> There are two models of peacekeeping operations: an interim measure to help manage a conflict by two or more parties, known as <b>traditional</b> missions, and <b>multidimensional</b> missions, which act once a peace agreement is in place with two or more components (civilian, military, police).
+  João Maurício explains that peacekeeping missions experienced a change after the intervention of the UN in Rwanda. In 1993,Rwanda and Uganda requested the deployment of military observers to prevent the military use of the area by RPF.
+  However, the United Nations and the whole international community remained accused of not having prevented the genocide.
+  </p>
+</div>
+
+<div id="section41" class="container-fluid">
+  <h2>Traditional peacekeeping operations</h2>
+  <p>This was the original operation during the Cold Ward, aiming to observe the ceasefire and separation of forces. They assist by negotiation, persuasion and verification of the situation wihtout playing a role in political efforts.
+    Some examples are the United Nations Peacekeeping Force in Cyprus (UNFICYP) or The United Nations Mission for the Referendum in Western Sahara (MINURSO), which was established in 1991 and monitores the ceasefire and reduces risks while the country waits for a referendum.
+  The following pictures are from this last mission:</p>
+  <br>
+  <figure id="figure">
+  <img src="pictures/minurso.jpg" alt="minurso" width="304" height="228">
+  <figcaption id="figcaption">Antonio Achille during a ceasefire monitoring patrol. Flickr: United Nations Photo</figcaption>
+  </figure>
+  <figure id="figure">
+  <img src="pictures/minurso2.jpg" alt="minurso" width="304" height="228">
+  <figcaption id="figcaption">Team conducting a ceasefire monitoring patrol. Flickr: United Nations Photo</figcaption>
+  </figure>
+</div>
+
+<div id="section42" class="container-fluid">
+  <h2>Multidimensional peacekeeping operations</h2>
+  <p> This has been the most common form of PKO after the Cold War.Once the traditional operation is over and there is a peace agreement, even if it's fragile, military, civilian, and police forces assist to a secure environment while working with national authorities.
+  </p>
+  <br>
+  <p>Example of a multidimensional operations are the former <b>United Nations Mission in the Democratic Republic of Congo</b> (MONUC), now MONUSCO, or the <b>United Nations Stabilization Mission in Haiti</b> (MINUSTAH).</p>
+  <h3>MINUSTAH</h3>
+  <figure>
+  <img src="pictures/minustah.jpg" alt="minustah" width="304" height="228">
+  <figcaption id="figcaption">Peacekeepers during elections in 2009. Flickr: United Nations Photo</figcaption>
+  </figure>
+  <p>Joao Mauricio, AUDIO</p>
+</div>
+
+<div id="section5" class="container-fluid">
+  <h1>Who pays for peacekeeping operations?</h1>
+  <br>
+  <p>Even though the <a href="#section2"><b>Security Council</b> defines the size and the mandate of the resoltion</a>, the <b>General Assembly</b> is the one who approves the budget and resources of the mission.
+  At the end of June each year, the General Assembly collects the approved resolutions and establishes the budget that will start the first day of July.
+  According to the <a href="http://www.un.org/en/sections/un-charter/chapter-iv/"><b>Article 17 of the Charter of the United Nations</b></a>, every Member State is <b>legally obligated</b> to pay their respective share towards peacekeeping missions.
+  However, countries can also <b>voluntarily support</b> these missions in the form of transportation, supplies, personnel and financial contributions.
+  </p>
+  <br>
+  <p> For the fiscal year 2015/16, the General Assembly <a href="http://www.un.org/ga/search/view_doc.asp?symbol=A/C.5/69/24">approved a budget of $8.27 billion [pdf]</a> for UN Peacekeeping operations.
+  Use the graphic below to see the current budget distributed by 15 missions, being the United Nations Organization Stabilization Mission in the Democratic Republic of the Congo (MONUSCO) the most expensive, with an investment of $1,332,178,600.
+  </p>
+  <br>
+  <div id="columnchart_material" style="width: 800px; height: 300px; margin:auto; position: relative;"></div>
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Mission', 'Budget'],
+          ['MINURSO',53190000],
+          ['MINUSCA',814066800],
+          ['MINUSMA',923305800],
+          ['MINUSTAH',380355700],
+          ['MONUSCO',1332178600],
+          ['UNAMID',1102164700],
+          ['UNDOF',51706200],
+          ['UNFICYP',52538500],
+          ['UNIFIL',506346400],
+          ['UNISFA',268256700],
+          ['UNMIK',40031000],
+          ['UNMIL',344712200],
+          ['UNMISS',1085769200],
+          ['UNOCI',402794300],
+          ['UNSOA',513428300],
+          ['UNLB',67157000],
+          ['Support account',336495800]
+        ]);
+
+        var options = {
+          chart: {
+            title: '2015/16 mission',
+            subtitle: 'Dolars',
+          }
+        };
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+        chart.draw(data, options);
+      }
+  </script>
+  <br>
+  <p> To look at the missions meaning click <a href="#section6">here </a></p>
+</div>
+
+<div id="section51" class="container-fluid">
+  <h2>A mandatory share </h2>
+  <p>Member states established a special scale to contribute to peacekeeping expenses depending on the <b>relative economic wealth</b> among other things.
+  The 5 permanent members of the Security Council are required to pay a larger share because of their duty to keep the international peace and security.
+</p><br>
+  <p>The top 5 contributors to UN PKOs are the <b>United States of America</b> (28.38%), <b>Japan</b> (10.83%), <b>France</b>	(7.22%), <b>Germany</b> (7.14); and the <b>United Kingdom and Northern Ireland</b> (6.68).
+  Use the graphic below to see the providers of this year budget:
+  </p>
+  <div id="piechart" style="width: 600px; height: 400px;"></div>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Country', 'Apportion'],
+        ['United States of America',28.3626],
+        ['Japan',10.833],
+        ['France',7.2105],
+        ['Germany',7.141],
+        ['United Kingdom of Great Britain and Northern Ireland',6.6768],
+        ['China',6.6368],
+        ['Italy',4.448],
+        ['Russian Federation',3.1431],
+        ['Canada',2.984],
+        ['Spain',2.973],
+        ['Others' ,20.5]
+      ]);
+
+      var options = {
+        title: 'Main apportion by country'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+  </div>
+
+<div id="section52" class="container-fluid">
+  <h2>Voluntary apportions</h2>
+  <p>As mentioned above, staff and equipment is provided voluntarily by the Member States. For the current 16 peacekeeping missions, <b>123 members</b> out of 193 have provided a total amount of <b>107,088</b> personeel as a form of police, UN Military Experts on Mission (UNMEM) and Troops.
+  <b>Bangladesh</b> is the country the contributes the most with 1,172 police, 69 UNMEM and 7,255 troops. Use the graph below to see the top 10 contributors:
+  </p>
+  <div id="piechart" style="width: 600px; height: 400px;"></div>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Country', 'Apportion'],
+        ['Bangladesh ',8496],
+        ['Ethiopia ',8296],
+        ['Ghana ',3198],
+        ['China ',3045],
+        ['Burkina Faso ',2906],
+        ['Egypt ',2809],
+        ['Benin ',1490],
+        ['Cameroon ',1371],
+        ['Burundi ',1241],
+        ['Brazil ',1231],
+        ['Others',73.005]
+      ]);
+
+      var options = {
+        title: 'Voluntary apportion by country'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+
+</div>
+<div id="section6" class="container-fluid">
+<p><b>Sources</b></p>
+<br>
+<p id="missions">United Nations <a href="http://www.un.org/en/peacekeeping/operations/financing.shtml">website</a>, <b>João Maurício</b>,Deputy Operations Officer in the Brazilian Engineering Company in the United Nations Stabilization Mission in Haiti, <b>Eduarda Hamann</b>, coordinator of the Peacebuilding programm at the Instituto Igaratpé in Brasil, Alexandra Buskie, Policy and Advocacy Manager at the United Nations Association in the UK and Core Pre-deployment Training Materials from the <a href="https://www.peaceopstraining.org"> <b>Peace Operations Training (POTI)</b></a></p>
+<br>
+<p><b>Missions</b></p>
+<br>
+<p id="missions">MINURSO, United Nations Mission for the Referendum in Western Sahara; MINUSCA, United Nations Multidimensional Integrated Stabilization
+Mission in the Central African Republic; MINUSMA, United Nations Multidimensional Integrated Stabilization Mission in Mali; MINUSTAH, United Nations
+Stabilization Mission in Haiti; MONUSCO, United Nations Organization Stabilization Mission in the Democratic Republic of the Congo; UNAMID, African UnionUnited
+Nations Hybrid Operation in Darfur; UNDOF, United Nations Disengagement Observer Force; UNFICYP, United Nations Peacek eeping Force in Cyprus;
+UNIFIL, United Nations Interim Force in Lebanon; UNISFA, United Nations Interim Security Force for Abyei; UNLB, United Nations Logistics Base at Brindisi,
+Italy; UNMIK, United Nations Interim Administration Mission in Kosovo; UNMIL, United Nations Mission in Liberia; UNMISS, United Nations Mission in South
+Sudan; UNOCI, United Nations Operation in Côte d’Ivoire; UNSOA, United Nations Support Office for the African Union Mission in Somalia.
+</p>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('body').scrollspy({target: ".navbar", offset: 50});
+});
+</script>
+
+</body>
+</html>
