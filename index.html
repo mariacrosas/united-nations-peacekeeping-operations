@@ -167,10 +167,24 @@
     font-size: 9px;
   }
 
+  .box {
+    position: relative;
+    text-align:center; /* center align the text inside the box */
+    margin:auto; /* center this .box element, assuming it is block-level */
+  }
+  img {
+    margin:5px;
+}
+
+
   #figure{
     display: inline-block;
     white-space: nowrap;
-  }
+    text-align:center;
+    width: 30%;
+    float: center;
+
+    }
 
   #missions{
     font-size: 12px;
@@ -444,14 +458,18 @@
     Some examples are the United Nations Peacekeeping Force in Cyprus (UNFICYP) or The United Nations Mission for the Referendum in Western Sahara (MINURSO), which was established in 1991 and monitores the ceasefire and reduces risks while the country waits for a referendum.
   The following pictures are from this last mission:</p>
   <br>
-  <figure id="figure">
-  <img src="pictures/minurso.jpg" alt="minurso" width="304" height="228">
-  <figcaption id="figcaption">Antonio Achille during a ceasefire monitoring patrol. Flickr: United Nations Photo</figcaption>
-  </figure>
-  <figure id="figure">
-  <img src="pictures/minurso2.jpg" alt="minurso" width="304" height="228">
-  <figcaption id="figcaption">Team conducting a ceasefire monitoring patrol. Flickr: United Nations Photo</figcaption>
-  </figure>
+  <div class="box">
+<img src="pictures/minurso.jpg" alt="minurso" width="304" height="228">
+<img src="pictures/minurso2.jpg" alt="minurso" width="304" height="228">
+    <p id="missions">
+    First picture: Antonio Achille during a ceasefire monitoring patrol.
+    Second picture: Team conducting a ceasefire monitoring patrol.
+    </p>
+    <p id="missions">
+      Flickr: United Nations Photo
+    </p>
+  </div>
+
 </div>
 
 <div id="section42" class="container-fluid">
