@@ -4,13 +4,11 @@
   <title>UN PKOs</title>
   <meta charset="UTF-8">
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="http://www.d3plus.org/js/d3.js"></script>
-  <script src="http://www.d3plus.org/js/d3plus.js"></script>
   <script>
-    var LineData = [
+    var sample_data = [
       {"year": 2006, "name": "MINUSTAH", "budget": 48920710},
       {"year": 2007, "name": "MINUSTAH", "budget": 53537280},
       {"year": 2008, "name": "MINUSTAH", "budget": 57491650},
@@ -159,7 +157,7 @@
     ]
     var visualization = d3plus.viz()
       .container("#viz")
-      .data(LineData)
+      .data(sample_data)
       .type("line")
       .id("name")
       .text("name")
@@ -167,6 +165,8 @@
       .x("year")
       .draw()
   </script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://www.google.com/jsapi" type="text/javascript"></script>
   <script type="text/javascript">
@@ -247,7 +247,6 @@
         var PieChart2 = new google.visualization.PieChart(document.getElementById('piechart3'));
         PieChart2.draw(PieData2, PieOptions2);
       };
-
   </script>
   <style>
   body {
@@ -418,6 +417,7 @@
   present in the Security Council and the General Assembly. Use the graphic below to see the number of missions since 2006 and their budget:</p>
   <br>
   <div id="viz"></div>
+
   <br>
   <p> To look at the missions meaning click <a href="#section6">here </a></p>
 </div>
