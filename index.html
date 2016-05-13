@@ -9,8 +9,6 @@
   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="http://www.d3plus.org/js/d3.js"></script>
   <script src="http://www.d3plus.org/js/d3plus.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
   <script>
     var LineData = [
       {"year": 2006, "name": "MINUSTAH", "budget": 48920710},
@@ -169,7 +167,8 @@
       .x("year")
       .draw()
   </script>
-
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
   <script type="text/javascript">
       google.charts.load('current', {'packages':['bar','corechart','corechart']});
       google.charts.setOnLoadCallback(drawChart);
